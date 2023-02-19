@@ -17,6 +17,11 @@ node $WORKSPACE/node-script/make_v8_inspector_export.js
 
 echo "=====[Building Node.js]====="
 
+export CC=clang
+export CXX=clang++
+export CXXFLAGS="-stdlib=libc++"
+export LDFLAGS="-stdlib=libc++"
+
 ./configure --shared
 make -j8
 
@@ -31,3 +36,6 @@ cp -r deps/v8/include ../puerts-node/nodejs/deps/v8
 
 mkdir -p ../puerts-node/nodejs/lib/Linux/
 cp out/Release/libnode.so.* ../puerts-node/nodejs/lib/Linux/
+cd ../puerts-node/nodejs/lib/Linux/
+ln -s libnode.so.93 libnode.so
+cd -
