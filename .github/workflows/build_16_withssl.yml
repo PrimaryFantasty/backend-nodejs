@@ -189,6 +189,7 @@ jobs:
     steps:
       - name: Install gcc-multilib g++-multilib
         run: |
+          sudo apt-get update
           sudo apt-get install gcc-multilib g++-multilib
       - uses: actions/checkout@v2
       - name: npm install
@@ -242,6 +243,7 @@ jobs:
     steps:
       - name: Install gcc-multilib g++-multilib
         run: |
+          sudo apt-get update
           sudo apt-get install gcc-multilib g++-multilib
       - uses: actions/checkout@v2
       - name: npm install
@@ -284,7 +286,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: NodeJS_${{env.VERSION}}_${{ github.event.inputs.tag_date }}
+          tag_name: NodeJS_${{env.VERSION}}_ssl_${{ github.event.inputs.tag_date }}
           release_name: NodeJS_${{env.VERSION}}(with ssl)_${{ github.event.inputs.tag_date }}
           draft: false
           prerelease: false

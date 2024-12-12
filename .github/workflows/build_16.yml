@@ -181,6 +181,7 @@ jobs:
     steps:
       - name: Install gcc-multilib g++-multilib
         run: |
+          sudo apt-get update
           sudo apt-get install gcc-multilib g++-multilib
       - uses: actions/checkout@v2
       - name: npm install
@@ -234,6 +235,7 @@ jobs:
     steps:
       - name: Install gcc-multilib g++-multilib
         run: |
+          sudo apt-get update
           sudo apt-get install gcc-multilib g++-multilib
       - uses: actions/checkout@v2
       - name: npm install
